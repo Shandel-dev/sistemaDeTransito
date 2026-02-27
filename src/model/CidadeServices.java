@@ -12,28 +12,31 @@ public class CidadeServices {
 
 	public static final String FILE_NAME = "ArquivoEstatistica.txt";
 	
-	public Cidade fSalvarCidade(Cidade cidade) throws IOException {
+	//CRIAR
+	public void fSalvarCidade(Cidade[] cidades) throws IOException {
 		BufferedWriter gravar = new BufferedWriter(new FileWriter(FILE_NAME));
 		
-		gravar.write(Integer.toString(cidade.getCodigo()));
-		gravar.newLine();
+		for(Cidade city : cidades) {
+			gravar.write(Integer.toString(city.getCodigo()));
+			gravar.newLine();
+			
+			gravar.write(city.getNome());
+			gravar.newLine();
+			
+			gravar.write(Integer.toString(city.getQtdAcidentes()));
+			gravar.newLine();			
+		}
 		
-		gravar.write(cidade.getNome());
-		gravar.newLine();
-		
-		gravar.write(Integer.toString(cidade.getQtdAcidentes()));
-		gravar.newLine();
 		
 		gravar.close();
 		
-		return cidade;
 	}
 	
+	//LER
 	public void fLerCidades(Cidade[] cidade) throws IOException {
 		BufferedReader ler = new BufferedReader(new FileReader(FILE_NAME));
 		
 		for(int i = 0; i < cidade.length; i++) {
-			cidade[i] = new Cidade();
 			
 			cidade[i].setCodigo(Integer.parseInt(ler.readLine()));
 			cidade[i].setNome(ler.readLine());
@@ -44,6 +47,7 @@ public class CidadeServices {
 		
 	}
 	
+	//Usso d
 	public Cidade[] pQtdAcidentes(Cidade[] cidade) {
 		ArrayList<Cidade> cidadesFiltradas = new ArrayList<Cidade>();
 		

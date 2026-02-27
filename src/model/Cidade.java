@@ -15,11 +15,13 @@ public class Cidade {
 		this.qtdAcidentes = qtdAcidentes;
 	}
 
-	public int getCodigo() {
+	public int getCodigo() {		
 		return codigo;
 	}
 
 	public void setCodigo(int codigo) {
+		if(codigo < 0) throw new IllegalArgumentException("Código não pode ser negativo!");
+		
 		this.codigo = codigo;
 	}
 
@@ -36,6 +38,7 @@ public class Cidade {
 	}
 
 	public void setQtdAcidentes(int qtdAcidentes) {
+		if(qtdAcidentes < 0) throw new IllegalArgumentException("A quantidade de acidentes não pode ser negativo!");
 		this.qtdAcidentes = qtdAcidentes;
 	}
 	
