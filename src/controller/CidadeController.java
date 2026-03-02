@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import model.Cidade;
-import model.CidadeServices;
+import model.TransitoServices;
 import view.CidadeFrame;
 import view.CidadeJOption;
 
@@ -15,14 +15,15 @@ public class CidadeController {
 	private static int QTD_CIDADES = 3;
 	
 	private Cidade[] cidades = new Cidade[QTD_CIDADES];
-	private CidadeServices services = new CidadeServices();
+	private TransitoServices services = new TransitoServices();
+	private boolean isDecreasing = false;
 
 	public CidadeController(){
 		
 		for(int i = 0; i < cidades.length; i++) cidades[i] = new Cidade();
 		
 		try {
-			services.fLerCidades(cidades);
+			services.readCities(cidades);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			CidadeJOption.errorMsg("ERRO AO FAZER A LEITURA DE DADOS NO ARQUIVO!");
@@ -55,13 +56,17 @@ public class CidadeController {
 				cidades = CidadeJOption.obterDados(QTD_CIDADES);
 
 				try {
-					services.fSalvarCidade(cidades);
+					services.saveCities(cidades);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					CidadeJOption.errorMsg(e.getMessage());
 				}
 				break;
-
+			case 2:
+				Cidade[] cidadesCopia = services.queryBySort(cidades, isDecreasing);
+				isDecreasing = !isDecreasing;
+				CidadeJOption.showCitiesBySort(cidadesCopia);
+				break;
 			case 4:
 				CidadeJOption.exibirDados(cidades);
 				break;

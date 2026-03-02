@@ -62,4 +62,14 @@ public class CidadeJOption {
 	public static void errorMsg(String msgError) {
 		JOptionPane.showMessageDialog(null, msgError, TITLE_WINDOW, JOptionPane.ERROR_MESSAGE);
 	}
+	
+	public static void showCitiesBySort(Cidade[] cidades) {
+		StringBuilder reportCities = new StringBuilder();
+		
+		for(Cidade city : cidades) {
+			reportCities.append(String.format("Código: %d%nCidade: %s%nAcidentes: %d%n", city.getCodigo(), city.getNome(), city.getQtdAcidentes()));
+			reportCities.append("-".repeat(35) + "\n");
+		}
+		JOptionPane.showMessageDialog(null, reportCities, TITLE_WINDOW, JOptionPane.INFORMATION_MESSAGE);
+	}
 }
