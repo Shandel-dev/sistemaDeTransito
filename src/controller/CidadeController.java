@@ -32,17 +32,12 @@ public class CidadeController {
 			CidadeJOption.errorMsg(e.getMessage());
 		}
 		
-		//inicializeFrame();
-		inicializeJOptionPane();
+		inicializeFrame();
+		//inicializeJOptionPane();
 	}
 
 	public void inicializeFrame() {
-		CidadeFrame window = new CidadeFrame();
-
-		window.setVisible(true);
-		window.setSize(800, 400);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setLocationRelativeTo(null);
+		CidadeFrame window = new CidadeFrame(cidades);
 	}
 
 	public void inicializeJOptionPane() {
