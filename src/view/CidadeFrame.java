@@ -1,14 +1,11 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -20,7 +17,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 import model.Cidade;
@@ -28,8 +24,14 @@ import model.Cidade;
 public class CidadeFrame extends JFrame{
 	
 	private static final String TITLE_WINDOW = "Sistema de Trânsito";
-	private static final int WIDTH = 800;
-	private static final int HEIGHT = 450;
+	public static final int WIDTH = 800;
+	public static final int HEIGHT = 450;
+	public JButton btnCadastrar;
+	public JButton btnAplicar;
+	public JButton btnLimpar;
+	public JTextField campoMin;
+	public JTextField campoMax;
+	
 	
 	public CidadeFrame(Cidade[] cidades) {
 		configurarJanela();
@@ -90,8 +92,8 @@ public class CidadeFrame extends JFrame{
 
 		JPanel sidebar = new JPanel(new GridLayout(0,1,0,10));
 	    sidebar.setBorder(new EmptyBorder(10,10,100,10));
-
-	    JButton btnCadastrar = new JButton("Cadastrar cidades");
+	    
+	    btnCadastrar = new JButton("Cadastrar cidades");
 
 	    JSeparator divisor = new JSeparator();
 
@@ -115,8 +117,8 @@ public class CidadeFrame extends JFrame{
 	    painel.add(new JLabel("MIN"));
 	    painel.add(new JLabel("MAX"));
 
-	    JTextField campoMin = new JTextField();
-	    JTextField campoMax = new JTextField();
+	    campoMin = new JTextField();
+	    campoMax = new JTextField();
 
 	    painel.add(campoMin);
 	    painel.add(campoMax);
@@ -128,9 +130,11 @@ public class CidadeFrame extends JFrame{
 
 	    JPanel painel = new JPanel(new GridLayout(1,2,5,0));
 
-	    JButton btnAplicar = new JButton("Aplicar");
-	    JButton btnLimpar = new JButton("Limpar");
-
+	    btnAplicar = new JButton("Aplicar");
+	    btnLimpar = new JButton("Limpar");
+	    
+	    
+	    
 	    painel.add(btnAplicar);
 	    painel.add(btnLimpar);
 

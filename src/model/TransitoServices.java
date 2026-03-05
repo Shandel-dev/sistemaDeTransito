@@ -7,8 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-
 
 public class TransitoServices {
 
@@ -28,8 +26,6 @@ public class TransitoServices {
 			gravar.write(Integer.toString(city.getQtdAcidentes()));
 			gravar.newLine();			
 		}
-		
-		
 		gravar.close();
 		
 	}
@@ -71,7 +67,7 @@ public class TransitoServices {
 		return cidadesSort;
 	}
 	
-	public static Cidade[] queryBybiggerThanAvg(Cidade[] cidades) {
+	public Cidade[] queryByBiggerThanAvg(Cidade[] cidades) {
 		int total = 0;
 		ArrayList<Cidade> filteredCities = new ArrayList<Cidade>();
 		

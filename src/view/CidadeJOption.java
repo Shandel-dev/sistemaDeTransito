@@ -9,7 +9,7 @@ public class CidadeJOption {
 	private static String TITLE_WINDOW = "SISTEMA DE TRÂNSITO | FATEC-ZL";
 
 	public static int menuEstatistica() {
-		String[] options = {"Cadastro Estatística", "Consulta por qtd. de acidentes", "Consulta por estatísticas de acidentes", "Acidentes acima da média das 10 cidades", "Ver dados"};
+		String[] options = {"Cadastro Estatística", "Consulta por qtd. de acidentes", "Consulta por acidentes ordenados", "Acidentes acima da média", "Ver dados"};
 		int opc = 0;
 		opc = JOptionPane.showOptionDialog(null, "MENU ESTATÍSTICA", TITLE_WINDOW, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[1]);
 
@@ -27,11 +27,11 @@ public class CidadeJOption {
 			do {
 				try {
 					cidades[i].setCodigo(Integer.parseInt(JOptionPane.showInputDialog(null,
-							(i + 1) + ". Insira o código: ", TITLE_WINDOW, JOptionPane.QUESTION_MESSAGE)));
-					cidades[i].setNome(JOptionPane.showInputDialog(null, (i + 1) + ". Informe o nome: ", TITLE_WINDOW,
+							(i + 1) + ". Informe um código único: ", TITLE_WINDOW, JOptionPane.QUESTION_MESSAGE)));
+					cidades[i].setNome(JOptionPane.showInputDialog(null, (i + 1) + ". Informe o nome da cidade: ", TITLE_WINDOW,
 							JOptionPane.QUESTION_MESSAGE));
 					cidades[i].setQtdAcidentes(Integer.parseInt(JOptionPane.showInputDialog(null,
-							(i + 1) + ". Informe a quantidade de acidentes ocorridos: ", TITLE_WINDOW,
+							(i + 1) + ". Informe a QTD. de acidentes resgistrados: ", TITLE_WINDOW,
 							JOptionPane.QUESTION_MESSAGE)));
 
 					isValid = true;
